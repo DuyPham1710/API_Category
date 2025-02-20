@@ -2,6 +2,29 @@ CREATE database marketplace;
 
 use marketplace;
 
+create table category (
+	ma_danh_muc int PRIMARY KEY,
+    ten_danh_muc nvarchar(200)
+);
+
+create table product (
+	id_chusp int PRIMARY KEY,
+    tensp nvarchar(200),
+    ma_danh_muc int,
+    gia_ban_dau varchar(20),
+	gia_hien_tai varchar(20),
+    so_luong int,
+    xuat_xu nvarchar(500),
+    bao_hanh nvarchar(100),
+    tinh_trang nvarchar(100),
+    mo_ta_tinh_trang nvarchar(500),
+    motasp nvarchar(500),
+    anh_ban_dau nvarchar(200),
+    anh_hien_tai nvarchar(200),
+    ngay_taosp date,
+    da_ban int,
+    FOREIGN KEY (ma_danh_muc) REFERENCES category(ma_danh_muc)
+);
 -- Tạo dữ liệu mẫu cho bảng Category
 INSERT INTO category (ma_danh_muc, ten_danh_muc) VALUES
 (1, 'Điện thoại'),
